@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "prometheus_querybuilder"
+name = "prometheus-query-builder"
 version = "0.1.0"
 description = ""
 authors = ["Michail Tsyganov <tsyganov.michail@yandex.ru>"]

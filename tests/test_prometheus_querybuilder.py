@@ -1,5 +1,5 @@
-from prometheus_querybuilder import __version__
-from prometheus_querybuilder.query import Query
+from prometheus_query_builder import __version__
+from prometheus_query_builder.query import Query
 
 import pytest
 
