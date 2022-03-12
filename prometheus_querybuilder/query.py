@@ -6,7 +6,7 @@ class Query:
         self.metric = metric
         self.labels = set()
         self.time_duration = ""
-        self.offset_modifier = ""
+        self.time_modifiers = []
 
     def __str__(self) -> str:
         query = self.metric
@@ -15,8 +15,8 @@ class Query:
             query += "{" + ",".join(sorted(str(label) for label in self.labels)) + "}"
         if self.time_duration:
             query += '[' + self.time_duration + ']'
-        if self.offset_modifier:
-            query += f" offset {self.offset_modifier}"
+        for m in self.time_modifiers:
+            query += f" {m}"
         return query
 
     def add_label(self, name: str, value: str, match_operator: str = "="):
@@ -39,7 +39,7 @@ class Query:
         self.time_duration = ""
 
     def add_offset(self, value: str):
-        self.offset_modifier = value
+        self.time_modifiers.append(f"offset {value}")
 
-    def remove_offset(self):
-        self.offset_modifier = ""
+    def add_at_modifier(self, value: str):
+        self.time_modifiers.append(f"@ {value}")

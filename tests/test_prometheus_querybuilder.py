@@ -65,3 +65,16 @@ def test_query_with_offset():
     query = Query("http_requests_total")
     query.add_offset("5m")
     assert str(query) == 'http_requests_total offset 5m'
+
+
+def test_query_with_at_modifier():
+    query = Query("http_requests_total")
+    query.add_at_modifier("1609746000")
+    assert str(query) == 'http_requests_total @ 1609746000'
+
+
+def test_query_with_time_modifiers():
+    query = Query("http_requests_total")
+    query.add_offset("5m")
+    query.add_at_modifier("1609746000")
+    assert str(query) == 'http_requests_total offset 5m @ 1609746000'
