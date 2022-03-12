@@ -6,12 +6,12 @@ SUPPORTED_MATCH_OPERATORS = ("=", "!=", "=~", "!~")
 
 @dataclass(frozen=True)
 class Label:
-    key: str
+    name: str
     value: str
     match_operator: str = "="
 
     def __str__(self) -> str:
-        return self.key + self.match_operator + f'"{self.value}"'
+        return self.name + self.match_operator + f'"{self.value}"'
 
 
 class Query:
@@ -26,7 +26,15 @@ class Query:
             query += "{" + ",".join(sorted(str(label) for label in self.labels)) + "}"
         return query
 
-    def add_label(self, key: str, value: str, match_operator: str = "="):
+    def add_label(self, name: str, value: str, match_operator: str = "="):
         if match_operator not in SUPPORTED_MATCH_OPERATORS:
             raise ValueError("Wrong match operator")
-        self.labels.add(Label(key, value, match_operator))
+
+        # replace old label value if exists
+        for label in list(filter(lambda x: x.name == name, self.labels)):
+            self.labels.remove(label)
+
+        self.labels.add(Label(name, value, match_operator))
+
+    def remove_label(self, key: str):
+        pass

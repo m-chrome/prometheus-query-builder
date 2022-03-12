@@ -37,3 +37,10 @@ def test_query_with_labels():
     query.add_label("environment", "production")
     query.add_label("method", "GET")
     assert str(query) == 'http_requests_total{environment="production",method="GET"}'
+
+
+def test_query_with_label_change():
+    query = Query("http_requests_total")
+    query.add_label("environment", "production")
+    query.add_label("environment", "stage")
+    assert str(query) == 'http_requests_total{environment="stage"}'
