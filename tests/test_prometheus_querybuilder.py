@@ -39,8 +39,16 @@ def test_query_with_labels():
     assert str(query) == 'http_requests_total{environment="production",method="GET"}'
 
 
-def test_query_with_label_change():
+def test_query_with_label_update():
     query = Query("http_requests_total")
     query.add_label("environment", "production")
     query.add_label("environment", "stage")
     assert str(query) == 'http_requests_total{environment="stage"}'
+
+
+def test_query_remove_label():
+    query = Query("http_requests_total")
+    query.add_label("environment", "production")
+    assert len(query.labels) == 1
+    query.remove_label("environment")
+    assert len(query.labels) == 0

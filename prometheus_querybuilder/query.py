@@ -31,10 +31,10 @@ class Query:
             raise ValueError("Wrong match operator")
 
         # replace old label value if exists
-        for label in list(filter(lambda x: x.name == name, self.labels)):
-            self.labels.remove(label)
+        self.remove_label(name)
 
         self.labels.add(Label(name, value, match_operator))
 
-    def remove_label(self, key: str):
-        pass
+    def remove_label(self, name: str):
+        for label in list(filter(lambda x: x.name == name, self.labels)):
+            self.labels.remove(label)
