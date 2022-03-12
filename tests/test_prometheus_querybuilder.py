@@ -59,3 +59,9 @@ def test_query_with_time_duration():
     query.add_label("environment", "production")
     query.add_time_duration("5m")
     assert str(query) == 'http_requests_total{environment="production"}[5m]'
+
+
+def test_query_with_offset():
+    query = Query("http_requests_total")
+    query.add_offset("5m")
+    assert str(query) == 'http_requests_total offset 5m'
