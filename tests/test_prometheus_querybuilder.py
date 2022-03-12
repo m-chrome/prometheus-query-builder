@@ -52,3 +52,10 @@ def test_query_remove_label():
     assert len(query.labels) == 1
     query.remove_label("environment")
     assert len(query.labels) == 0
+
+
+def test_query_with_time_duration():
+    query = Query("http_requests_total")
+    query.add_label("environment", "production")
+    query.add_time_duration("5m")
+    assert str(query) == 'http_requests_total{environment="production"}[5m]'
