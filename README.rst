@@ -1,10 +1,10 @@
 prometheus-query-builder
-#####
+########################
 
 Package for generation Prometheus Query Language queries.
 
 Installation
-*****
+************
 
 Use pip for to install from Pypi: ::
 
@@ -20,7 +20,7 @@ Usage
 See usage examples in tests directory.
 
 TODO
-*****
+****
 
 Support PromQL:
 

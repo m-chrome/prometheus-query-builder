@@ -1,10 +1,11 @@
 [tool.poetry]
 name = "prometheus-query-builder"
-version = "0.1.1"
+version = "0.1.2"
 description = "Package for generation Prometheus Query Language queries."
 authors = ["Michail Tsyganov <tsyganov.michail@yandex.ru>"]
 homepage = "https://github.com/m-chrome/prometheus-query-builder"
 repository = "https://github.com/m-chrome/prometheus-query-builder"
+readme = "README.rst"
 
 [tool.poetry.dependencies]
 python = "^3.8"
