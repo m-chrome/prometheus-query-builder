@@ -6,6 +6,7 @@ authors = ["Michail Tsyganov <tsyganov.michail@yandex.ru>"]
 homepage = "https://github.com/m-chrome/prometheus-query-builder"
 repository = "https://github.com/m-chrome/prometheus-query-builder"
 readme = "README.rst"
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -13,6 +14,9 @@ python = "^3.8"
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 pytest-cov = "^3.0.0"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/m-chrome/prometheus-query-builder/issues"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
