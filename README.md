@@ -1,7 +1,7 @@
 prometheus-query-builder
 ========================
 
-[![PyPI version](https://badge.fury.io/py/prometheus-query-builder.svg)](https://badge.fury.io/py/prometheus-query-builder)
+[![PyPI version](https://badge.fury.io/py/prometheus-query-builder.svg)](https://pypi.org/project/prometheus-query-builder/)
 [![PyPI version](https://img.shields.io/pypi/pyversions/prometheus-query-builder.svg)](https://pypi.org/project/prometheus-query-builder/)
 [![MIT licensed](https://img.shields.io/pypi/l/prometheus-query-builder)](./LICENSE)
 [![CI](https://github.com/m-chrome/prometheus-query-builder/actions/workflows/tests.yml/badge.svg)](https://github.com/m-chrome/prometheus-query-builder/actions)
