@@ -7,6 +7,18 @@ homepage = "https://github.com/m-chrome/prometheus-query-builder"
 repository = "https://github.com/m-chrome/prometheus-query-builder"
 readme = "README.rst"
 license = "MIT"
+keywords = ["prometheus", "promql", "query-builder"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
