@@ -1,11 +1,6 @@
-from prometheus_query_builder import __version__
 from prometheus_query_builder.query import Query
 
 import pytest
-
-
-def test_version():
-    assert __version__ == '0.1.0'
 
 
 def test_query():
