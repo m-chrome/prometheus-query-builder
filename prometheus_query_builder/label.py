@@ -1,5 +1,14 @@
-from dataclasses import dataclass
+from attr import dataclass, ib
+from attr.validators import instance_of, in_
 
+__all__ = (
+    "EQUAL",
+    "NOT_EQUAL",
+    "REGEX_MATCH",
+    "NOT_REGEX_MATCH",
+    "SUPPORTED_MATCH_OPERATORS",
+    "Label",
+)
 
 EQUAL = "="
 NOT_EQUAL = "!="
@@ -9,11 +18,11 @@ NOT_REGEX_MATCH = "!~"
 SUPPORTED_MATCH_OPERATORS = (EQUAL, NOT_EQUAL, REGEX_MATCH, NOT_REGEX_MATCH)
 
 
-@dataclass(frozen=True)
+@dataclass(slots=True, frozen=True)
 class Label:
-    name: str
-    value: str
-    match_operator: str = "="
+    name: str = ib(validator=instance_of(str))
+    value: str = ib(validator=instance_of(str), eq=False)
+    match_operator: str = ib(default=EQUAL, validator=in_(SUPPORTED_MATCH_OPERATORS), eq=False)
 
     def __str__(self) -> str:
-        return self.name + self.match_operator + f'"{self.value}"'
+        return f"{self.name}{self.match_operator}\"{self.value}\""
